@@ -3,7 +3,9 @@
   flex-wrap: wrap;
   padding: 24px;
   margin: 0 auto;
-
+  @media (max-width: 540px) {
+    padding: 24px 0;
+  }
   .video-side {
     width: 100%;
     padding-right: 24px;
@@ -427,7 +429,7 @@
     }
   }
 
-  .nex-video {
+  .next-video {
     img {
       max-width: 168px;
       height: 94px;

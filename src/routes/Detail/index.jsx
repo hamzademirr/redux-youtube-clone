@@ -127,7 +127,7 @@ function Detail() {
         ))}
       {!isLoading &&
         videoData.map((video) => (
-          <div className="nex-video">
+          <div className="next-video">
             <VideoDetailCard videoTitle={video.snippet.title} />
           </div>
         ))}

@@ -1,13 +1,18 @@
 .video-search-card-template {
   background-color: #0f0f0f;
   color: white;
-  width: 100%;
+  width: 51%;
   border: none;
   border-radius: 12px;
   padding: 16px 8px 0 8px;
+  @media (min-width: 540px) {
+    width: 100%;
+  }
 
   .navlink-template {
-    display: flex;
+    @media (min-width: 540px) {
+      display: flex;
+    }
   }
 
   .ant-card-body {
@@ -16,9 +21,11 @@
 
     .video-image {
       img {
-        display: flex;
         border-radius: 12px;
         margin-right: 16px;
+        @media (max-width: 540px) {
+          width: 100%;
+        }
       }
     }
 

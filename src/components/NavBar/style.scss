@@ -1,13 +1,16 @@
 navbar {
   display: flex;
   justify-content: space-between;
-  padding-left: 16px;
+  padding: 0 16px;
   height: 56px;
   align-items: center;
 
   .leftItem {
     padding: 0 0 0 8px;
     display: flex;
+    @media (max-width: 540px) {
+      padding: 0;
+    }
 
     .menu-button {
       margin: 0;
@@ -15,10 +18,16 @@ navbar {
       border: 0;
       width: 24px;
       height: 24px;
+      @media (max-width: 540px) {
+        visibility: collapse;
+      }
     }
 
     .youtubeLogo {
       margin-left: 24px;
+      @media (max-width: 540px) {
+        margin: 0;
+      }
     }
   }
 
@@ -80,7 +89,18 @@ navbar {
     display: flex;
     align-items: center;
     margin-right: 16px;
+    @media (max-width: 540px) {
+      width: 50px;
+      margin-right: 0;
+    }
 
+    .deneme {
+      display: flex;
+      align-items: center;
+      @media (max-width: 540px) {
+        visibility: collapse;
+      }
+    }
     div {
       padding: 8px;
       margin-right: 8px;
@@ -89,7 +109,10 @@ navbar {
     .user {
       margin: 0;
       padding: 0 14px;
-
+      @media (max-width: 540px) {
+        margin-left: auto;
+        padding: 0;
+      }
       .userPhoto {
         width: 32px;
         height: 32px;

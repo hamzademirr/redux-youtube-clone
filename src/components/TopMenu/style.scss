@@ -4,6 +4,9 @@
   align-items: center;
   padding: 12px 8px;
   flex-grow: 1;
+  @media (max-width: 540px) {
+    width: 50%;
+  }
 
   button {
     margin-right: 12px;

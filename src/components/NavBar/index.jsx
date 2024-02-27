@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Outlet, useNavigate, NavLink } from 'react-router-dom';
 import { Button, Input, Dropdown, Space } from 'antd';
@@ -22,6 +22,7 @@ function NavBar() {
   const dispatch = useDispatch();
   const theme = useSelector(selectTheme);
 
+  const [isPhoneMode, setIsPhoneMode] = useState(false);
   const [serachText, setSerchText] = useState("");
   const navigate = useNavigate();
   const handleSubmit = (event) => {
@@ -29,6 +30,28 @@ function NavBar() {
     event.preventDefault();
     navigate(`/search?q=${serachText}`);
   };
+
+  useEffect(() => {
+    const phoneMediaQuery = window.matchMedia("(max-width: 540px)");
+
+    const handleMediaQueryChange = (mediaQuery) => {
+      setIsPhoneMode(mediaQuery.matches);
+    };
+
+    handleMediaQueryChange(phoneMediaQuery);
+
+    const mediaQueryListener = phoneMediaQuery.addListener(handleMediaQueryChange);
+
+    return () => {
+      mediaQueryListener.removeListener(handleMediaQueryChange);
+    };
+  }, []); // Bu etkileşim sadece bir kere çalışacak, bu yüzden boş bağımlılık dizisi
+
+  useEffect(() => {
+    if (isPhoneMode) {
+      dispatch(toggleSidebar());
+    }
+  }, [dispatch, isPhoneMode]);
 
   const items = [
     {
@@ -74,11 +97,13 @@ function NavBar() {
         </div>
 
         <div className="rightItem">
-          <div>
-            <Create />
-          </div>
-          <div>
-            <Notifications />
+          <div className='deneme'>
+            <div>
+              <Create />
+            </div>
+            <div>
+              <Notifications />
+            </div>
           </div>
           <div className="user">
             <Dropdown
