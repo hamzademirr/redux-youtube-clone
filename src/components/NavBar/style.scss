@@ -19,7 +19,7 @@ navbar {
       width: 24px;
       height: 24px;
       @media (max-width: 540px) {
-        visibility: collapse;
+        display: none;
       }
     }
 
@@ -82,6 +82,9 @@ navbar {
       margin-left: 16px;
       width: 44px;
       height: 40px;
+      @media (max-width: 540px) {
+        display: none;
+      }
     }
   }
 
@@ -98,7 +101,7 @@ navbar {
       display: flex;
       align-items: center;
       @media (max-width: 540px) {
-        visibility: collapse;
+        display: none;
       }
     }
     div {
