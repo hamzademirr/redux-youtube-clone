@@ -29,7 +29,7 @@ function VideoSearchCard() {
       }
     };
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, searchParams]);
 
   return (
     <>
